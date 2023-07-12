@@ -1,4 +1,5 @@
 from random import randint
+#add comment 1
 
 board = []
 
@@ -8,7 +9,7 @@ for x in range(5):
 def print_board(board):
     for row in board:
         print((" ").join(row))
-
+#add comment 2
 print("Let's play Battleship!")
 print_board(board)
 
@@ -20,6 +21,7 @@ def random_col(board):
 ship_row = random_row(board)
 ship_col = random_col(board)
 
+#add comment 3
 for turn in range(9):
     print ("Turn"), turn
     guess_row = int(input("Guess Row:"))
