@@ -42,4 +42,4 @@ for turn in range(9):
     if turn == 8:
         print("Game Over")
     turn =+ 1
-    print_board(board)
+    dprint_board(board)
