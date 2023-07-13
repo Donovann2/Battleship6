@@ -1,8 +1,7 @@
 from random import randint
 #add comment 1
-
+def create_board():
 board = []
-
 for x in range(5):
     board.append(["O"] * 5)
 
@@ -25,8 +24,7 @@ ship_col = random_col(board)
 for turn in range(9):
     print ("Turn"), turn
     guess_row = int(input("Guess Row:"))
-    guess_col = int(
-        input("Guess Col:"))
+    guess_col = int(input("Guess Col:"))
 
     if guess_row == ship_row and guess_col == ship_col:
         print("Congratulations! You sunk my battleship!")
