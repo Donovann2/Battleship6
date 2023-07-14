@@ -18,7 +18,7 @@ def place_battleships(board):
     for _ in range(3):
         row = random.randint(0, 4)
         col = random.randint(0, 4)
-        board[row][col] = "B"
+        board[row][col] = "O"
 
 #This right here fam....is to get user's guess and check 
 def guess_ship(board):
@@ -28,12 +28,12 @@ def guess_ship(board):
         if guess_row < 0 or guess_row > 4 or guess_col < 0 or guess_col > 4:
             print("Nah fam. You should have known that's not even in the ocean...OP.")
         elif board[guess_row][guess_col] == "X":
-            print("Fam, you guessed that one already. bruh")
+            print("Bro, you guessed that one already. bruh")
         else:
             break
 
-    if board[guess_row][guess_col] = == "B":
-        print("Congrats fam. you sank the battleship.")
+    if board[guess_row][guess_col] == "O":
+        print("Congrats fam. you sunk the battleship.")
         board[guess_row][guess_col] = "X"
         return True
     else:
