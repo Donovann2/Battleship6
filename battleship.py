@@ -28,15 +28,15 @@ for turn in range(9):
     guess_col = int(input("Guess Col (0-4):"))
 
     if guess_row == ship_row and guess_col == ship_col:
-        print("you missed the battleship try again -__-")
+        print("bruh, you are an op. you missed the battleship.")
         break
     else:
         if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
-            print("You should have known that's not even in the ocean -_-")
+            print("Nah fam. You should have known that's not even in the ocean...OP.")
         elif(board[guess_row][guess_col] == "X"):
-            print("you guessed that one already. bruh.")
+            print("Fam, you guessed that one already. bruh.")
         else:
-            print("you missed the battleship try again -__-.")
+            print("bruh, you are an op. you missed the battleship.")
             board[guess_row][guess_col] = "X"
     if turn == 8:
         print("Game Over")
@@ -53,6 +53,3 @@ for turn in range(9):
             break
     turn =+ 1
     print_board(board)
-    
-
-
