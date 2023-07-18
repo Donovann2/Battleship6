@@ -18,13 +18,13 @@ def print_board(board):
         row_num +=1
 
 def get_ship_location():
-    
+
     #Enter the row number between 1 to 5
     row=input('Please enter a ship row 1-5 ').upper()
     while row not in '1 2 3 4 5':
         print("Please enter a valid row ")
         row=input('Please enter a ship row 1-5 ')
-    
+
     #Enter the Ship column from 1 to 5
     column=input('Please enter a ship column 1-5 ').upper()
     while column not in '12345':
@@ -77,5 +77,3 @@ while turns > 0:
     print(' You have ' +str(turns) + ' turns remaining ')
     if turns == 0:
         print('Game Over ')
-        
-    
