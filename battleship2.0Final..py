@@ -1,10 +1,10 @@
 import random
 #Made by Don and Paul
 
-#This is when you are choosing how big you want your board/ocean.
+#This is when the board should start as 10x10.
 while True:
     cole = False
-    arrSize = input('Choose How big you want your Ocean: ')
+    arrSize = 10
     try: 
         int(arrSize)
     except:
@@ -31,7 +31,7 @@ while True:
         cole = True
         continue
     if cole != True:
-        if int(chooserR) < 0 or int(chooserR) >= int(arrSize): #checking for out of bounds on row
+        if int(chooserR) < 0 or int(chooserR) >= int(arrSize): #This is checking for out of bounds on row.
             print('Yeahhh i think you slow ben hawk')
             continue
     break
@@ -47,34 +47,42 @@ while True:
         cole = True
         continue
     if cole != True:
-        if int(chooserC) < 0 or int(chooserC) >= int(arrSize): #checking for out of bounds on row
+        if int(chooserC) < 0 or int(chooserC) >= int(arrSize): #This is checking for out of bounds on row.
             print('OH MY COME ONNNN!!!')
             continue
     break
 myarr[int(chooserR)][int(chooserC)] = "H"
 
 
-#method that will print the bord
+#This method that will print the opponent board.
 def printBoard():
     print("The Oppositions")
     for r in range(len(arr)):
         print(arr[r])
         print()
-        
+        print(ship1.name)
+
+#This will print the user's board.       
 def printMyBoard():
     print("Your Board")
     for r in range(len(myarr)):
         print(myarr[r])
         print()
+        print(ship2.name)
 
 #This is to define the class of the ship. 
-class ship():
+class ship:
     def __init__(self, x, y, name):
         self.x = x
         self.y = y
         self.name = name
+ship1 = ship("1", "1", "Chicago Bulls")
+ship2 = ship("1", "1", "Lakers")
 
 
+    
+
+#This is storing the list of allMoves and allShips.
 x = 0
 row = random.randrange(0,int(arrSize))
 col = random.randrange(0,int(arrSize))
@@ -82,8 +90,11 @@ print(str(col) + " , " + str(row))
 allMoves = []
 allShip = []
 
-ship1 = ship(row,col,"Lefter")
+
+
+#This has something to do with the class of the ships.
 allShip.append(ship1)
+allShip.append(ship2)
 
 #This will show you what round are you on.
 while True:
@@ -91,7 +102,7 @@ while True:
     print("Round =", x)
     printBoard()
 
-    #valadating the row input
+    #This is valadating the row input.
     while True:
         cole = False
         Trow = input('Choose Row: ')
@@ -102,12 +113,12 @@ while True:
             cole = True
             continue
         if cole != True:
-            if int(Trow) < 0 or int(Trow) > 4: #checking for out of bounds on row
+            if int(Trow) < 0 or int(Trow) > 4: #This is checking for out of bounds on row.
                 print('Please enter a number in the bounds.')
                 continue
         break
 
-    #valadating the col input
+    #This is valadating the col input.
     while True:
         cole = False
         Tcol = input('Choose Col: ')
@@ -118,7 +129,7 @@ while True:
             cole = True
             continue
         if cole != True:
-            if int(Tcol) < 0 or int(Tcol) > 4: #checking for out of bounds on row
+            if int(Tcol) < 0 or int(Tcol) > 4: #This is checking for out of bounds on row.
                 print('enter a number in the bounds.')
                 continue
         break
@@ -133,7 +144,7 @@ while True:
     allMoves.append(int(Tcol))
     if arr[int(Trow)][int(Tcol)] == "X":
         print("you have already did that Stooopiddd")
-        x-=1 # subtract 1 from the round number
+        x-=1 # This is subtracting 1 from the round number.
     else:
         remover = 0
         for i in range(len(allShip)):
@@ -143,7 +154,7 @@ while True:
                 print("Ship Was Destoryed, You Win")
                 quit()
 
-#This code commands is when you missed the target.
+#This code command is when you missed the target.
         if not holder:
             print("Miss!")
             arr[int(Trow)][int(Tcol)] = "X"
@@ -152,7 +163,7 @@ while True:
     while myarr[attackR][attackC] == "X":
         attackR = random.randrange(0,int(arrSize))
         attackC = random.randrange(0,int(arrSize))
-    if myarr[attackR][attackC] == "H":
+    if myarr[attackR][attackC] == "H": #This code until line 170 means that you have been eliminated by the computer.
         myarr[attackR][attackC] = 'X'
         printMyBoard()
         print('You died.')
@@ -161,7 +172,7 @@ while True:
         myarr[attackR][attackC] = 'X'
         printMyBoard()
         
-    #if round is 5 or greater than 5 then the game is over and you lost.. loser
+    #if round is 5 or greater than 5 then the game is over and you lost.. loser...Nerd.
     if x >= 5:
         print("You have been eliminated hahahaha")
         quit()
