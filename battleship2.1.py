@@ -3,22 +3,12 @@ import random
 #Cole has helped with the code!
 
 #This is when the board should start as 10x10.
-while True:
-    cole = False
-    arrSize = 10
-    try: 
-        int(arrSize)
-    except:
-        print("Please provide an single number")
-        cole = True
-        continue
-    if cole != True:
-        if int(arrSize) > 10: 
-            print('Come on now damn it')
-            continue
-    break
+
+cole = False
+arrSize = 10
     
-arr = [["O" for i in range(int(arrSize))] for i in range(int(arrSize))]
+    
+arr = [["O" for i in range(int(10))] for i in range(int(10))]
 myarr = [["O" for i in range(int(arrSize))] for i in range(int(arrSize))]
 EnemyArr = arr
 
@@ -172,7 +162,7 @@ def printBoard(arr):
     for r in range(len(arr)):
         print(arr[r])
         print()
-        #print(ship1.name)
+       
 
 #This will print the user's board.       
 def printMyBoard():
@@ -180,16 +170,9 @@ def printMyBoard():
     for r in range(len(myarr)):
         print(myarr[r])
         print()
-        print(ship2.name)
+        
 
-#This is to define the class of the ship. 
-class ship:
-    def __init__(self, x, y, name):
-        self.x = x
-        self.y = y
-        self.name = name
-ship1 = ship(1, 1, "Chicago Bulls")
-ship2 = ship(1, 2, "Lakers")
+
 
 
     
@@ -205,8 +188,8 @@ allShip = []
 
 
 #This has something to do with the class of the ships.
-allShip.append(ship1)
-allShip.append(ship2)
+allShip.append
+
 
 #This will show you what round are you on.
 while True:
