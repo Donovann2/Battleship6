@@ -181,7 +181,7 @@ def printMyBoard():
 x = 0
 row = random.randrange(0,int(arrSize))
 col = random.randrange(0,int(arrSize))
-print(str(col) + " , " + str(row))
+
 allMoves = []
 allShip = []
 
