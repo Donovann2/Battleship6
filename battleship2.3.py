@@ -18,14 +18,14 @@ def Func(row, col, size, dir):
             for i in range(size):
                 if EnemyArr[row+i][col] != "O":
                     return False
-        except:
+        except IndexError:
             return False
     else:
         try:
             for i in range(size):
                 if EnemyArr[row][col+i] != "O":
                     return False
-        except:
+        except IndexError:
             return False
     return True
 
@@ -36,49 +36,25 @@ def add(row, col, size, dir, name):
     else:
         for i in range(size):
             EnemyArr[row][col+i] = name
+
+ship_names = ["Battleship", "Cruiser", "Destroyer", "Submarine", "Minesweeper"]
+ship_sizes = [5, 4, 3, 3, 2]
                 
-            
-while True:
-    row = random.randrange(0,10)
-    col = random.randrange(0,10)
-    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
-    if Func(row, col, 5, dir):
-        add(row, col, 5, dir, "B")
-        break
-while True:
-    row = random.randrange(0,10)
-    col = random.randrange(0,10)
-    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
-    if Func(row, col, 4, dir):
-        add(row, col, 4, dir, "G")
-        break
-while True:
-    row = random.randrange(0,10)
-    col = random.randrange(0,10)
-    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
-    if Func(row, col, 3, dir):
-        add(row, col, 3, dir, "L")
-        break
-while True:
-    row = random.randrange(0,10)
-    col = random.randrange(0,10)
-    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
-    if Func(row, col, 3, dir):
-        add(row, col, 3, dir, "Z")
-        break
-while True:
-    row = random.randrange(0,10)
-    col = random.randrange(0,10)
-    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
-    if Func(row, col, 2, dir):
-        add(row, col, 2, dir, "M")
-        break
+for name, size in zip(ship_names, ship_names):           
+    while True:
+        row = random.randrange(0, arrSize)
+        col = random.randrange(0, arrSize)
+        direction = random.randrange(0,2) # 0 = vertical, 1 = horizontal
+        if Func(row, col, size, direction):
+            add(row, col, size, direction, name)
+            break
+
     
 
 #This is when you are choosing the row you are inputting.
 while True:
     cole = False
-    myShipDir = input('Choose your ship diection(0 = vertical, 1 = horizontal): ')
+    myShipDir = input('Choose your ship direction (0 = vertical, 1 = horizontal): ')
     try:
         int(myShipDir)
     except:
