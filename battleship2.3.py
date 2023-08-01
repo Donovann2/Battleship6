@@ -1,5 +1,4 @@
 import random
-#Made by Don and Paul
 #Cole has helped with the code!
 
 #This is when the board should start as 10x10.
@@ -18,14 +17,14 @@ def Func(row, col, size, dir):
             for i in range(size):
                 if EnemyArr[row+i][col] != "O":
                     return False
-        except IndexError:
+        except:
             return False
     else:
         try:
             for i in range(size):
                 if EnemyArr[row][col+i] != "O":
                     return False
-        except IndexError:
+        except:
             return False
     return True
 
@@ -37,18 +36,68 @@ def add(row, col, size, dir, name):
         for i in range(size):
             EnemyArr[row][col+i] = name
 
-ship_names = ["Battleship", "Cruiser", "Destroyer", "Submarine", "Minesweeper"]
-ship_sizes = [5, 4, 3, 3, 2]
-                
-for name, size in zip(ship_names, ship_names):           
-    while True:
-        row = random.randrange(0, arrSize)
-        col = random.randrange(0, arrSize)
-        direction = random.randrange(0,2) # 0 = vertical, 1 = horizontal
-        if Func(row, col, size, direction):
-            add(row, col, size, direction, name)
-            break
+myShips = []
+class Ship:
+    def __init__(self,x,y):
+        self.name = x
+        self.list = y
 
+cole = False
+carrier = Ship("Carrier", [[0,0],[0,5]])
+myShips.append(carrier)
+
+battleship = Ship("Battleship", [[0,0],[0,4]])
+myShips.append(battleship)
+
+destroyer = Ship("Destroyer", [[0,0],[0,3]])
+myShips.append(destroyer)
+
+submarine = Ship("Submarine", [[0,0],[0,3]])
+myShips.append(submarine)
+
+patrol_boat = Ship("Patrol Boat", [[0,0],[0,2]])
+myShips.append(patrol_boat)
+
+for row in range(len(arr)):
+    for col in range(len(arr[0])):
+        print(row, col)
+                     
+            
+while True:
+    row = random.randrange(0,10)
+    col = random.randrange(0,10)
+    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
+    if Func(row, col, 5, dir):
+        add(row, col, 5, dir, "B")
+        break
+while True:
+    row = random.randrange(0,10)
+    col = random.randrange(0,10)
+    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
+    if Func(row, col, 4, dir):
+        add(row, col, 4, dir, "G")
+        break
+while True:
+    row = random.randrange(0,10)
+    col = random.randrange(0,10)
+    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
+    if Func(row, col, 3, dir):
+        add(row, col, 3, dir, "L")
+        break
+while True:
+    row = random.randrange(0,10)
+    col = random.randrange(0,10)
+    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
+    if Func(row, col, 3, dir):
+        add(row, col, 3, dir, "Z")
+        break
+while True:
+    row = random.randrange(0,10)
+    col = random.randrange(0,10)
+    dir = random.randrange(0,2) # 0 = vertical, 1 = horizontal
+    if Func(row, col, 2, dir):
+        add(row, col, 2, dir, "M")
+        break
     
 
 #This is when you are choosing the row you are inputting.
@@ -58,12 +107,12 @@ while True:
     try:
         int(myShipDir)
     except:
-        print("Are you Dumb?")
+        print("Try again.")
         cole = True
         continue
     if cole != True:
         if int(myShipDir) < 0 or int(myShipDir) >= 2: #This is checking for out of bounds on row.
-            print('Yeahhh i think you slow ben hawk')
+            print('Try again.')
             continue
     break
 
@@ -74,12 +123,12 @@ while True:
     try:
         int(myShipLength)
     except:
-        print("Are you Dumb?")
+        print("Try again.")
         cole = True
         continue
     if cole != True:
         if int(myShipLength) < 1 or int(myShipLength) >= 5: #This is checking for out of bounds on row.
-            print('Yeahhh i think you slow ben hawk')
+            print('Try again.')
             continue
     break
 
@@ -90,17 +139,17 @@ while True:
     try:
         int(chooserR)
     except:
-        print("Are you Dumb?")
+        print("Try again.")
         cole = True
         continue
     if cole != True:
         if int(myShipDir) == 0:
             if int(chooserR) < 1 or int(chooserR) > 10: #This is checking for out of bounds on row.
-                print('Yeahhh i think you slow ben hawk')
+                print('Try again.')
                 continue
         else:
             if int(chooserR) < 1 or int(chooserR) > 10+1-myShipLength: #This is checking for out of bounds on row.
-                print('Yeahhh i think you slow ben hawk')
+                print('Try again.')
                 continue
     break
 
@@ -111,17 +160,17 @@ while True:
     try:
         int(chooserC)
     except:
-        print("Please provide a int -_-")
+        print("Try again.")
         cole = True
         continue
     if cole != True:
         if int(myShipDir) == 0:
             if int(chooserC) < 1 or int(chooserC) > 10+1-myShipLength: #This is checking for out of bounds on row.
-                print('OH MY COME ONNNN!!!')
+                print('Try again.')
                 continue
             else:
                 if int(chooserC) < 1 or int(chooserC) > 10: #This is checking for out of bounds on row.
-                    print('OH MY COME ONNNN!!!')
+                    print('Try again.')
                     continue
     break
 for i in range(myShipLength):
@@ -183,12 +232,12 @@ while True:
         try:
             int(Trow)
         except:
-            print("Please provide a int BENJAMIN")
+            print("Try again.")
             cole = True
             continue
         if cole != True:
             if int(Trow) < 1 or int(Trow) > 10: #This is checking for out of bounds on row.
-                print('Please enter a number in the bounds.')
+                print('Try again.')
                 continue
         break
 
@@ -199,12 +248,12 @@ while True:
         try:
             int(Tcol)
         except:
-            print("Provide a Int BEN!")
+            print("Try again.")
             cole = True
             continue
         if cole != True:
             if int(Tcol) < 1 or int(Tcol) > 10: #This is checking for out of bounds on row.
-                print('enter a number in the bounds.')
+                print('Try again.')
                 continue
         break
 
@@ -217,13 +266,13 @@ while True:
     allMoves.append(int(Trow))
     allMoves.append(int(Tcol))
     if arr[int(Trow)][int(Tcol)] == "X":
-        print("you have already did that Stooopiddd")
-        x-=1 # This is subtracting 1 from the round number.
+        print("Try again.")
+        x-=1 #This is subtracting 1 from the round number.
     else:
         remover = 0
         for i in range(len(allShip)):
             if arr[int(Trow)][int(Tcol)] != "O" and arr[int(Trow)][int(Tcol)] != "X":
-                print("You Hit Something at ", str(int(Tcol)+1) + " X, and at " + str(int(Trow)+1) + " Y")
+                print("You hit something at ", str(int(Tcol)+1) + " X, and at " + str(int(Trow)+1) + " Y")
                 temp = arr[Trow][Tcol]
                 arr[int(Trow)][int(Tcol)] = "X"
                 count = 0
@@ -232,7 +281,7 @@ while True:
                         if i == temp:
                             count += 1
                 if count == 0:
-                    print("You Destoryed the ship")
+                    print("You destroyed the ship.")
                 
 
 
@@ -253,7 +302,7 @@ while True:
         myarr[attackR][attackC] = 'X'
         printMyBoard()
         
-    #if round is 5 or greater than 5 then the game is over and you lost.. loser...Nerd.
+    #This is checking the numbers of rounds left.
     if x >= 5:
-        print("You have been eliminated hahahaha")
+        print("Eliminated.")
         quit()
